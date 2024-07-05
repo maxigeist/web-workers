@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Calcular número primo con  Web Workers</title>
+</head>
+<body>
+	<h1>Vamos a esperar la respuesta del  Web Worker</h1>
+	<p>El botón de abajo es para demostrar que podemos hacer click porque no es código bloqueante</p>
+	<button onclick="onButtonClick()">Soy un botón y puedes hacerme click cuando quieras</button>
+	<p id="resultados">Aquí aparecerá el mensaje</p>
+</body>
+
+<script>
+    const onButtonClick = () => {
+        var miWorker = new Worker("./script.js");
+
+		miWorker.postMessage(300000);
+		miWorker.onmessage = function(evento){
+			var elemento = document.querySelector("#resultados");
+			elemento.innerHTML = evento.data;
+		}
+    }
+</script>
+</html>
