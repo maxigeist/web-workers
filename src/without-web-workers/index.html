@@ -2,18 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Calcular número primo sin Web Workers</title>
+    <title>Prime number</title>
 </head>
 <body>
-<h1>Vamos a esperar a que el cálculo termine</h1>
-<p>El botón de abajo es para demostrar que NO podemos hacer click porque SÍ es código bloqueante</p>
-<button>Soy un botón y NO puedes hacerme click mientras se trabaja</button>
-<p id="resultados">Aquí aparecerá el mensaje</p>
+    <h1>Calcular número primo que viene antes del 300000 sin Web Workers</h1>
+    <p>Intenta de escribir en el input box luego de clickear el botón, no podrás ya que el hilo principal está ocupado haciendo el otro trabajo</p>
+    <button onclick="onButtonClick()">Clickea para arrancar</button>
+    <input>
+    <p id="resultados">Aquí aparecerá el mensaje</p>
 </body>
 
 <script>
-    window.setTimeout(function () {
-        var limite = 1500000;
+    const onButtonClick = () =>  {
+        var limite = 300000;
         var mayorEncontradoHastaElMomento = 0;
 
         function esPrimo(numero) {
@@ -37,6 +38,6 @@
 
         var elemento = document.querySelector("#resultados");
         elemento.innerHTML = "Hola. El número primo más grande menor que " + limite.toString() + " es " + mayorEncontradoHastaElMomento.toString();
-    }, 2000);
+    }
 </script>
 </html>

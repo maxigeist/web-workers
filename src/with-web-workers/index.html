@@ -2,24 +2,26 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Calcular número primo con  Web Workers</title>
+	<title>Prime number</title>
 </head>
 <body>
-	<h1>Vamos a esperar la respuesta del  Web Worker</h1>
-	<p>El botón de abajo es para demostrar que podemos hacer click porque no es código bloqueante</p>
-	<button onclick="onButtonClick()">Soy un botón y puedes hacerme click cuando quieras</button>
+	<h1>Calcular número primo que viene antes del 300000 con Web Workers</h1>
+	<p>Intenta de escribir en el input box luego de clickear el botón</p>
+	<button onclick="onButtonClick()">Clickea para arrancar</button>
+	<input>
 	<p id="resultados">Aquí aparecerá el mensaje</p>
 </body>
 
 <script>
-    const onButtonClick = () => {
-        var miWorker = new Worker("./script.js");
+
+	const onButtonClick = () => {
+		var miWorker = new Worker("./script.js");
 
 		miWorker.postMessage(300000);
-		miWorker.onmessage = function(evento){
+		miWorker.onmessage = function (evento) {
 			var elemento = document.querySelector("#resultados");
 			elemento.innerHTML = evento.data;
 		}
-    }
+	}
 </script>
 </html>
