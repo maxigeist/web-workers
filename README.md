@@ -10,7 +10,7 @@ You need to have Python installed on your system to run the local server.
 
 To use the web worker, you need to run a local server in the directory where the `index.html` file is located. This is because web workers cannot be run in a file that is opened directly in the browser.
 
-1. Navigate to the `with web worker` folder.
+1. Navigate to the `with-web-workers` folder.
 2. Run this command to open an HTTP server in the current directory:
    ```sh
    python -m http.server 8080
@@ -24,7 +24,7 @@ To use the web worker, you need to run a local server in the directory where the
 
 ## Running the Example without Web Worker
 
-1. Navigate to the `without web worker` folder.
+1. Navigate to the `without–web-workers` folder.
 2. Open the index.html file in your browser.
 3. Try out the example.
 
